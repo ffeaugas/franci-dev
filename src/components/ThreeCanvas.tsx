@@ -1,45 +1,55 @@
 import { Canvas } from "@react-three/fiber";
 import { TVModel } from "./models/TVmodel";
+import { Suspense } from "react";
+import { useTexture } from "@react-three/drei";
 
 const ThreeCanvas = () => {
   return (
     <div className="w-full h-dvh">
-      <Canvas>
-        <ambientLight intensity={0.8} />
-        <directionalLight position={[4, 0, 7]} intensity={2} />
-        {/* <mesh>
-          <boxGeometry args={[2, 2, 2]} />
-          <meshStandardMaterial />
-        </mesh> */}
-
-        <TVModel position={[0.4, -3, -2]} rotation={[0, Math.PI / 6, 0]} />
-        <TVModel
-          position={[0.4, -0.27, -2.3]}
-          rotation={[0, -Math.PI / 12, 0]}
-        />
-        {/* Floor */}
-        <mesh
-          receiveShadow
-          rotation={[-Math.PI / 2, 0, 0]}
-          position={[0, -3.5, -2]}
-        >
-          <planeGeometry args={[50, 50]} />
-          <meshPhysicalMaterial
-            color="#ffffff"
-            roughness={0.05}
-            metalness={0.2}
-            clearcoat={0.7}
-            clearcoatRoughness={0.04}
-            reflectivity={0.9}
-          />
-        </mesh>
-        <mesh receiveShadow castShadow position={[4, -3.2, -1]}>
-          <boxGeometry args={[2, 2, 2]} />
-          <meshStandardMaterial />
-        </mesh>
+      <Canvas shadows>
+        <Suspense fallback={null}>
+          <Scene />
+        </Suspense>
       </Canvas>
     </div>
   );
 };
 
 export default ThreeCanvas;
+
+const Scene = () => {
+  const [webglTsScreenMap, projectManagerScreenMap] = useTexture([
+    "webgl-ts-screen-1.jpg",
+    "project-manager-screen-2.jpg",
+  ]);
+  return (
+    <>
+      <ambientLight intensity={1.8} />
+      <directionalLight position={[4, 3, 7]} intensity={10} castShadow />
+      <TVModel
+        position={[0.4, -3, -1.7]}
+        rotation={[0, Math.PI / 6, 0]}
+        texture={webglTsScreenMap}
+      />
+      <TVModel
+        position={[0.4, -0.27, -2]}
+        rotation={[0, -Math.PI / 12, 0]}
+        texture={projectManagerScreenMap}
+      />
+      <Floor />
+    </>
+  );
+};
+
+const Floor = () => {
+  return (
+    <mesh
+      receiveShadow
+      rotation={[-Math.PI / 2, 0, 0]}
+      position={[0, -3.5, -2]}
+    >
+      <planeGeometry args={[50, 50]} />
+      <meshStandardMaterial color="#ffffff" />
+    </mesh>
+  );
+};

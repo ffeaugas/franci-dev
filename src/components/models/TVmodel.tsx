@@ -1,16 +1,18 @@
 import { useGLTF } from "@react-three/drei";
-import { Mesh } from "three";
+import { Mesh, Texture } from "three";
 
 interface TVModelProps {
   position?: [number, number, number];
   rotation?: [number, number, number];
   scale?: [number, number, number];
+  texture?: Texture;
 }
 
 export const TVModel = ({
   position = [0, 0, 0],
   rotation = [0, 0, 0],
   scale = [1, 1, 1],
+  texture,
 }: TVModelProps) => {
   const { nodes, materials } = useGLTF("/models/tv1.glb");
   return (
@@ -27,7 +29,9 @@ export const TVModel = ({
           receiveShadow
           geometry={(nodes.Plane_1 as Mesh).geometry}
           material={materials.ecran}
-        />
+        >
+          {texture && <meshBasicMaterial map={texture} />}
+        </mesh>
         <mesh
           castShadow
           receiveShadow
