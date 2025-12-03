@@ -5,7 +5,7 @@ import { useTexture } from "@react-three/drei";
 
 const ThreeCanvas = () => {
   return (
-    <div className="w-full h-dvh">
+    <div className="w-full h-dvh md:block hidden">
       <Canvas shadows>
         <Suspense fallback={null}>
           <Scene />
@@ -25,7 +25,7 @@ const Scene = () => {
   return (
     <>
       <ambientLight intensity={1.8} />
-      <directionalLight position={[4, 3, 7]} intensity={10} castShadow />
+      <directionalLight position={[7, 3, 10]} intensity={10} castShadow />
       <TVModel
         position={[3.7, -3, -1.7]}
         rotation={[0, Math.PI / 10, 0]}
@@ -49,7 +49,7 @@ const Floor = () => {
       position={[0, -3.5, -2]}
     >
       <planeGeometry args={[50, 50]} />
-      <meshStandardMaterial color="#ffffff" />
+      <meshStandardMaterial color="#ceeaf2" />
     </mesh>
   );
 };

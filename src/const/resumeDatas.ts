@@ -1,6 +1,9 @@
-export const resumeDatas = {
+import type { ResumeData } from "@/types/resume";
+
+export const resumeDatas: ResumeData = {
     presentation : {
         title: 'Présentation',
+        description: "Après 2 années à développer des applications au sein d'une agence de développement Web parisienne, je propose désormais mes services en tant que freelance.",
         cards: [
             {
                 icon: 'LaptopMinimalCheck',
@@ -10,18 +13,30 @@ export const resumeDatas = {
             {
                 icon: 'Box',
                 title: '3D',
-                description: "Intégration de 3D dans vos applications Web. De la création de modèles 3D à leur intégration dans votre application.",
+                description: "Intégration de 3D dans vos applications Web. De la création de modèles 3D à leur rendu dans votre application.",
             },
             {
                 icon: 'LampDesk',
                 title: 'Conseil et Débugging',
-                description: "Débugging de votre application en production, optimisation des performances, monitoring, accessibilité, sécurité, et réduction des coûts d'hébergement.",
+                description: "Débugging de votre application en développement ou production, optimisation des performances, monitoring, accessibilité, sécurité, et réduction des coûts d'hébergement.",
             }
         ]
     },
     experiences : {
         title: 'Expériences',
         cards: [
+            {
+                title: 'Développeur Full-Stack',
+                company: 'Freelance',
+                year: '2025',
+                clients: [
+                    {
+                        name: 'Lueur studio',
+                        description: "Association d'événementiel : développement d'un site immersif et interactif",
+                        technologies: ['React', 'Three.js']
+                    }
+                ]
+            },
             {
                 title: 'Développeur Full-Stack',
                 company: 'Galadrim',
@@ -41,7 +56,7 @@ export const resumeDatas = {
                     {
                         name: 'Project x Paris',
                         description: "SAAS - Prêt à porter - Amélioration et maintenance des logiciels de caisse et logistique (gestion des stocks, commandes, prix, statistiques et ressources humaines) - Modernisation de la stack technique (JS → TS, Pug → React)",
-                        technologies: ['React', 'Express,js', 'jQuery', 'Pug', 'MySQL', 'AWS']
+                        technologies: ['React', 'Express.js', 'jQuery', 'Pug', 'MySQL', 'AWS']
                     },
                     {
                         name: 'splitter.fr',
@@ -57,23 +72,11 @@ export const resumeDatas = {
                 }
             },
             {
-                title: 'Développeur Full-Stack',
-                company: 'Freelance',
-                year: '2025',
-                clients: [
-                    {
-                        name: 'Lueur studio',
-                        description: "Développement d'un site immersif et intéractif pour une association d'événementiel",
-                        technologies: ['React', 'Three.js']
-                    }
-                ]
-            },
-            {
-                title:'Doctorant en électionique',
-                company: "IMS (Laboratoire de l'Intégation du matériau au système)",
+                title:'Doctorant en électronique',
+                company: "IMS (Laboratoire de l'Intégration du Matériau au Système)",
                 year: '2020-2022',
-                description: "Sujet de thèse : “Dopage de polymères conjugués pour l'amélioration de l'efficacité et la stabilité des cellules photovoltaïques organiques”  Conférence donnée en anglais (ESEMA 2022)  Article publié : [Feaugas F. et al. (2022). Homojunction Doping for Efficient Hole Extraction in Polymer Solar Cells. Solar RRL]",
-                link: 'https://hal.science/hal-04235875v1/document'
+                description: `Sujet de thèse : “Dopage de polymères conjugués pour l'amélioration de l'efficacité et la stabilité des cellules photovoltaïques organiques”<br/>Conférence donnée en anglais (ESEMA 2022)<br/>Article publié : [Feaugas F. et al. (2022). Homojunction Doping for Efficient Hole Extraction in Polymer Solar Cells. Solar RRL]`,
+                link: 'https://hal.science/hal-04235875v1/document',
             }
 
         ]
@@ -95,8 +98,8 @@ export const resumeDatas = {
                 technologies: ['Typescript', 'WebGL'],
             },
             {
-                title: 'Vainqueur Hackaton Zenmon Drops',
-                description: "Première place lors d'un hackathon organisé par Zenmon Drops visant à réaliser un Chatbot orienté neuronsciences",
+                title: 'Hackathon Zenmon Drops',
+                description: "Première place lors d'un hackathon organisé par Zenmon Drops et 42 visant à réaliser un Chatbot orienté neuronsciences",
                 year: '2023',
                 technologies: ['PHP', 'Wordpress', 'Javascript'],
             }
@@ -119,4 +122,4 @@ export const resumeDatas = {
             },
         ]
     },
-}
+} satisfies ResumeData;
