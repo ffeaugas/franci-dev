@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="w-full h-dvh relative">
       <ThreeCanvas />
-      <div className="absolute top-0 left-0 w-full h-full">coucou</div>
+      <div className="absolute top-0 left-0">coucou</div>
     </div>
   );
 }

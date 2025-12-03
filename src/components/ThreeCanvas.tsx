@@ -27,12 +27,12 @@ const Scene = () => {
       <ambientLight intensity={1.8} />
       <directionalLight position={[4, 3, 7]} intensity={10} castShadow />
       <TVModel
-        position={[0.4, -3, -1.7]}
-        rotation={[0, Math.PI / 6, 0]}
+        position={[3.7, -3, -1.7]}
+        rotation={[0, Math.PI / 10, 0]}
         texture={webglTsScreenMap}
       />
       <TVModel
-        position={[0.4, -0.27, -2]}
+        position={[3.7, -0.27, -2]}
         rotation={[0, -Math.PI / 12, 0]}
         texture={projectManagerScreenMap}
       />
