@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export const ContactInfo = () => {
   return (
-    <div className="h-[20%] flex items-center sm:gap-6 gap-2 sm:px-6 px-2 md:justify-start justify-center w-full">
+    <div className="h-[20%] flex items-center sm:gap-6 gap-2 sm:px-6 px-2 md:justify-start justify-center w-full sm:my-0 y-4 my-5 sm:mt-0">
       <div className="relative shrink-0 sm:w-22 w-16 sm:h-22 h-16">
         <img
           src="/me.jpg"
