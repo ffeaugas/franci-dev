@@ -29,7 +29,7 @@ export const ResumeContent = () => {
   };
 
   return (
-    <div className="h-[80%] flex flex-col pb-10 sm:pb-0">
+    <div className="h-[80%] flex flex-col pb-10 sm:pb-4">
       <div className="flex gap-2 md:px-6 px-2 py-3 border-b overflow-x-auto">
         {sections.map((section) => {
           const sectionTitle = resumeDatas[section].title;
