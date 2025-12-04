@@ -2,7 +2,7 @@ import { useGLTF } from "@react-three/drei";
 import { useState } from "react";
 import { Mesh, Texture } from "three";
 
-interface TVModelProps {
+export interface TVModelProps {
   position?: [number, number, number];
   rotation?: [number, number, number];
   scale?: [number, number, number];
