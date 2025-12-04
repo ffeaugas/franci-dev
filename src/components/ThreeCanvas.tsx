@@ -1,6 +1,6 @@
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { TVModel } from "./models/TVmodel";
-import { Suspense } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { useTexture } from "@react-three/drei";
 import { TVModel2 } from "./models/TVModel2";
 import { TVModel3 } from "./models/TVmodel3";
@@ -25,8 +25,10 @@ const Scene = () => {
     "webgl-ts-screen-1.jpg",
     "project-manager-screen-2.jpg",
   ]);
+
   return (
     <>
+      <CameraController />
       <ambientLight intensity={2.8} />
       <directionalLight position={[4, 3, 10]} intensity={5} castShadow />
       <TVModel
@@ -35,7 +37,7 @@ const Scene = () => {
         texture={projectManagerScreenMap}
       />
       <TVModel
-        position={[6, -0.27, -3]}
+        position={[6, -0.3, -3]}
         rotation={[0, -Math.PI / 12, 0]}
         scale={[0.8, 0.8, 0.8]}
         texture={webglTsScreenMap}
@@ -47,7 +49,7 @@ const Scene = () => {
         scale={[1.4, 1.4, 1.4]}
       />
       <LittleMonster
-        position={[4, -2.1, -1]}
+        position={[4, -2.25, -1.5]}
         rotation={[0, -Math.PI / 12, 0]}
         scale={[0.2, 0.2, 0.2]}
       />
@@ -56,15 +58,42 @@ const Scene = () => {
   );
 };
 
+const CameraController = () => {
+  const { camera } = useThree();
+  const [mouseX, setMouseX] = useState(0);
+  const targetPosition = useRef(0);
+  const currentPosition = useRef(0);
+  const initialX = useRef(camera.position.x);
+
+  useEffect(() => {
+    initialX.current = camera.position.x;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const normalizedX = (e.clientX / window.innerWidth) * 2 - 1;
+      const maxOffset = 0.5;
+      setMouseX(normalizedX * maxOffset);
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [camera]);
+
+  useFrame(() => {
+    targetPosition.current = mouseX;
+    currentPosition.current +=
+      (targetPosition.current - currentPosition.current) * 0.05;
+
+    camera.position.x = initialX.current + currentPosition.current;
+  });
+
+  return null;
+};
+
 const Floor = () => {
   return (
-    <mesh
-      receiveShadow
-      rotation={[-Math.PI / 2, 0, 0]}
-      position={[0, -3.5, -2]}
-    >
+    <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={[0, -3, -2]}>
       <planeGeometry args={[50, 50]} />
-      <meshStandardMaterial color="#ceeaf2" />
+      <meshStandardMaterial color="#bebaf2" />
     </mesh>
   );
 };
