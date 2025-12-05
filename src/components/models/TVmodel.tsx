@@ -54,16 +54,16 @@ export const TVModel = ({
         receiveShadow
         geometry={(nodes.Molette as Mesh).geometry}
         material={materials.molette}
-        position={[1.621, 2.168, 0.967]}
+        position={[1.612, 0.903, 0.967]}
         rotation={[Math.PI / 2, 0, 0]}
-        scale={0.206}
+        scale={[0.109, 0.168, 0.109]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={(nodes.Bouton as Mesh).geometry}
         material={materials.bouton}
-        position={[1.638, 0.678, isButtoPushed ? 0.8 : 0.95]}
+        position={[1.61, 0.579, isButtoPushed ? 0.8 : 0.95]}
         rotation={[Math.PI / 2, 0, 0]}
         scale={0.121}
         onClick={(e) => {
@@ -80,8 +80,89 @@ export const TVModel = ({
           document.body.style.cursor = "default";
         }}
       />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={(nodes.Cube as Mesh).geometry}
+        material={materials.aeration}
+        position={[1.606, 2.615, 0.995]}
+        rotation={[-2.978, 0, -Math.PI]}
+        scale={[-0.381, -0.004, -0.043]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={(nodes.Boutons as Mesh).geometry}
+        material={materials.boutons}
+        position={[1.43, 1.208, 1.059]}
+        scale={0.058}
+      />
     </group>
   );
 };
 
 useGLTF.preload("/models/tv1.glb");
+
+// <group {...props} dispose={null}>
+//   <group position={[0, 0.261, 0]} scale={[2.034, 1, 1.293]}>
+//     <mesh
+//       castShadow
+//       receiveShadow
+//       geometry={nodes.Plane.geometry}
+//       material={materials.chassis}
+//     />
+//     <mesh
+//       castShadow
+//       receiveShadow
+//       geometry={nodes.Plane_1.geometry}
+//       material={materials.ecran}
+//     />
+//     <mesh
+//       castShadow
+//       receiveShadow
+//       geometry={nodes.Plane_2.geometry}
+//       material={materials.panel}
+//     />
+//     <mesh
+//       castShadow
+//       receiveShadow
+//       geometry={nodes.Plane_3.geometry}
+//       material={materials.sideSection}
+//     />
+//   </group>
+//   <mesh
+//     castShadow
+//     receiveShadow
+//     geometry={nodes.Molette.geometry}
+//     material={materials.molette}
+//     position={[1.612, 0.903, 0.967]}
+//     rotation={[Math.PI / 2, 0, 0]}
+//     scale={[0.109, 0.168, 0.109]}
+//   />
+//   <mesh
+//     castShadow
+//     receiveShadow
+//     geometry={nodes.Bouton.geometry}
+//     material={materials.bouton}
+//     position={[1.61, 0.579, 0.956]}
+//     rotation={[Math.PI / 2, 0, 0]}
+//     scale={0.121}
+//   />
+//   <mesh
+//     castShadow
+//     receiveShadow
+//     geometry={nodes.Cube.geometry}
+//     material={materials.aeration}
+//     position={[1.606, 2.615, 0.995]}
+//     rotation={[-2.978, 0, -Math.PI]}
+//     scale={[-0.381, -0.004, -0.043]}
+//   />
+//   <mesh
+//     castShadow
+//     receiveShadow
+//     geometry={nodes.Boutons.geometry}
+//     material={materials.boutons}
+//     position={[1.43, 1.208, 1.059]}
+//     scale={0.058}
+//   />
+// </group>;

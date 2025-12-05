@@ -8,14 +8,14 @@ export interface LittleMonsterProps {
   scale?: [number, number, number];
 }
 
-export const LittleMonster = ({
+export const LittleMonster2 = ({
   position,
   rotation,
   scale,
 }: LittleMonsterProps) => {
   const group = useRef<Group>(null);
   const { nodes, materials, animations } = useGLTF(
-    "/models/little-monster.glb"
+    "/models/little-monster2.glb"
   );
   const { actions } = useAnimations(animations, group);
 
@@ -32,17 +32,16 @@ export const LittleMonster = ({
       dispose={null}
     >
       <group name="Scene">
-        <group name="Armature">
+        <group name="Armature" position={[0, 2.472, 0]}>
           <skinnedMesh
-            castShadow
-            name="Corps"
-            geometry={(nodes.Corps as Mesh).geometry}
+            name="Cube"
+            geometry={(nodes.Cube as Mesh).geometry}
             material={materials.peau}
-            skeleton={(nodes.Corps as SkinnedMesh).skeleton}
+            skeleton={(nodes.Cube as SkinnedMesh).skeleton}
           />
           <primitive object={nodes.Bone} />
-          <primitive object={nodes.Bone011} />
-          <primitive object={nodes.Bone014} />
+          <primitive object={nodes.Bone031} />
+          <primitive object={nodes.Bone035} />
         </group>
       </group>
     </group>

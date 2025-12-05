@@ -5,6 +5,7 @@ import { useTexture } from "@react-three/drei";
 import { TVModel2 } from "./models/TVModel2";
 import { TVModel3 } from "./models/TVmodel3";
 import { LittleMonster } from "./models/LittleMonster";
+import { LittleMonster2 } from "./models/LittleMonster2";
 
 const ThreeCanvas = () => {
   return (
@@ -30,7 +31,7 @@ const Scene = () => {
     <>
       <CameraController />
       <ambientLight intensity={2.8} />
-      <directionalLight position={[4, 3, 10]} intensity={5} castShadow />
+      <directionalLight position={[3, 3, 10]} intensity={5} castShadow />
       <TVModel
         position={[6.7, -3, -2.7]}
         rotation={[0, -Math.PI / 5, 0]}
@@ -50,6 +51,11 @@ const Scene = () => {
       />
       <LittleMonster
         position={[4, -2.25, -1.5]}
+        rotation={[0, -Math.PI / 12, 0]}
+        scale={[0.2, 0.2, 0.2]}
+      />
+      <LittleMonster2
+        position={[6.5, 1.85, -2.1]}
         rotation={[0, -Math.PI / 12, 0]}
         scale={[0.2, 0.2, 0.2]}
       />
