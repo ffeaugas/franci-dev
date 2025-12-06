@@ -6,6 +6,7 @@ import { TVModel2 } from "./models/TVModel2";
 import { TVModel3 } from "./models/TVmodel3";
 import { LittleMonster } from "./models/LittleMonster";
 import { LittleMonster2 } from "./models/LittleMonster2";
+import { TVModel4 } from "./models/TVModel4";
 
 const ThreeCanvas = () => {
   return (
@@ -30,32 +31,32 @@ const Scene = () => {
   return (
     <>
       <CameraController />
-      <ambientLight intensity={2.8} />
-      <directionalLight position={[3, 3, 10]} intensity={5} castShadow />
+      <ambientLight intensity={4} />
+      <directionalLight position={[4, 3, 7]} intensity={7} castShadow />
       <TVModel
         position={[6.7, -3, -2.7]}
         rotation={[0, -Math.PI / 5, 0]}
         texture={projectManagerScreenMap}
       />
-      <TVModel
-        position={[6, -0.3, -3]}
-        rotation={[0, -Math.PI / 12, 0]}
-        scale={[0.8, 0.8, 0.8]}
+      <TVModel4
+        position={[6.7, -0.37, -3]}
+        rotation={[0, -Math.PI / 4, 0]}
+        scale={[1.1, 1.1, 1.1]}
         texture={webglTsScreenMap}
       />
-      <TVModel2 position={[1.7, -3, -1.7]} rotation={[0, Math.PI / 10, 0]} />
+      <TVModel2 position={[1.5, -3, -1.3]} rotation={[0, Math.PI / 10, 0]} />
       <TVModel3
         position={[3.5, -3, -5.3]}
         rotation={[0, Math.PI * 1.2, 0]}
         scale={[1.4, 1.4, 1.4]}
       />
       <LittleMonster
-        position={[4, -2.25, -1.5]}
+        position={[4.5, -2.25, -1.5]}
         rotation={[0, -Math.PI / 12, 0]}
         scale={[0.2, 0.2, 0.2]}
       />
       <LittleMonster2
-        position={[6.5, 1.85, -2.1]}
+        position={[6, 2.1, -2]}
         rotation={[0, -Math.PI / 12, 0]}
         scale={[0.2, 0.2, 0.2]}
       />
@@ -99,7 +100,18 @@ const Floor = () => {
   return (
     <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={[0, -3, -2]}>
       <planeGeometry args={[50, 50]} />
-      <meshStandardMaterial color="#bebaf2" />
+      <meshPhysicalMaterial
+        color="#c7c5af"
+        clearcoat={1}
+        clearcoatRoughness={0}
+        metalness={0.7}
+        roughness={0.15}
+        iridescence={0.8}
+        iridescenceIOR={1.3}
+        sheen={1}
+        sheenColor="#cfd1e3"
+        sheenRoughness={0.2}
+      ></meshPhysicalMaterial>
     </mesh>
   );
 };

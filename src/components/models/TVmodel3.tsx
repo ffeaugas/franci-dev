@@ -63,4 +63,4 @@ export const TVModel3 = (props: TVModelProps) => {
   );
 };
 
-useGLTF.preload("/tv3.glb");
+useGLTF.preload("/models/tv3.glb");

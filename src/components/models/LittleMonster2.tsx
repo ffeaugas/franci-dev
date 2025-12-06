@@ -48,4 +48,4 @@ export const LittleMonster2 = ({
   );
 };
 
-useGLTF.preload("/little-monster-with-bones.glb");
+useGLTF.preload("/models/little-monster2.glb");

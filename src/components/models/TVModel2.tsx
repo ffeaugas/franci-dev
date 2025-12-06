@@ -100,4 +100,4 @@ export const TVModel2 = (props: TVModelProps) => {
   );
 };
 
-useGLTF.preload("/tv2.glb");
+useGLTF.preload("/models/tv2.glb");
