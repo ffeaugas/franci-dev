@@ -76,8 +76,8 @@ const CameraController = () => {
     initialX.current = camera.position.x;
 
     const handleMouseMove = (e: MouseEvent) => {
-      const normalizedX = (e.clientX / window.innerWidth) * 2 - 1;
-      const maxOffset = 0.5;
+      const normalizedX = (e.clientX / window.innerWidth) * 2 - 2;
+      const maxOffset = 0.3;
       setMouseX(normalizedX * maxOffset);
     };
 
