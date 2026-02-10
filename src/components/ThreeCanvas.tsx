@@ -39,17 +39,20 @@ const Scene = () => {
         position={[6.7, -3, -2.7]}
         rotation={[0, -Math.PI / 5, 0]}
         texture={projectManagerScreenMap}
+        link="https://project-manager.franci.dev/"
       />
       <TVModel4
         position={[6.7, -0.37, -3]}
         rotation={[0, -Math.PI / 4, 0]}
         scale={[1.1, 1.1, 1.1]}
         texture={lueurScreenMap}
+        link="https://lueurs-studio.fr"
       />
       <TVModel2
         position={[1.5, -3, -1.3]}
         rotation={[0, Math.PI / 10, 0]}
         texture={webglTsScreenMap}
+        link="https://github.com/ffeaugas/webgl-ts"
       />
       <TVModel3
         position={[3.5, -3, -5.3]}

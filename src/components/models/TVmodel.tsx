@@ -7,6 +7,7 @@ export interface TVModelProps {
   rotation?: [number, number, number];
   scale?: [number, number, number];
   texture?: Texture;
+  link?: string;
 }
 
 export const TVModel = ({
@@ -14,6 +15,7 @@ export const TVModel = ({
   rotation = [0, 0, 0],
   scale = [1, 1, 1],
   texture,
+  link,
 }: TVModelProps) => {
   const [isButtoPushed, setIsButtonPushed] = useState(false);
   const { nodes, materials } = useGLTF("/models/tv1.glb");
@@ -33,6 +35,20 @@ export const TVModel = ({
           receiveShadow
           geometry={(nodes.Plane_1 as Mesh).geometry}
           material={materials.ecran}
+          onClick={(e) => {
+            e.stopPropagation();
+            if (link) {
+              window.open(link, "_blank");
+            }
+          }}
+          onPointerOver={(e) => {
+            e.stopPropagation();
+            document.body.style.cursor = "pointer";
+          }}
+          onPointerOut={(e) => {
+            e.stopPropagation();
+            document.body.style.cursor = "default";
+          }}
         >
           {texture && !isButtoPushed && <meshBasicMaterial map={texture} />}
         </mesh>

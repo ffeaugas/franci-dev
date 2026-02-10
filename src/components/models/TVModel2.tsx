@@ -30,6 +30,20 @@ export const TVModel2 = (props: TVModelProps) => {
           receiveShadow
           geometry={(nodes.Cube_2 as Mesh).geometry}
           material={materials.ecran}
+          onClick={(e) => {
+            e.stopPropagation();
+            if (props.link) {
+              window.open(props.link, "_blank");
+            }
+          }}
+          onPointerOver={(e) => {
+            e.stopPropagation();
+            document.body.style.cursor = "pointer";
+          }}
+          onPointerOut={(e) => {
+            e.stopPropagation();
+            document.body.style.cursor = "default";
+          }}
         >
           {props.texture && !isButtoPushed && (
             <meshBasicMaterial map={props.texture} />
