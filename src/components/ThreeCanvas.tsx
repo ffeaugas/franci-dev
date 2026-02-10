@@ -23,10 +23,12 @@ const ThreeCanvas = () => {
 export default ThreeCanvas;
 
 const Scene = () => {
-  const [webglTsScreenMap, projectManagerScreenMap] = useTexture([
-    "webgl-ts-screen-1.jpg",
-    "project-manager-screen-2.jpg",
-  ]);
+  const [webglTsScreenMap, projectManagerScreenMap, lueurScreenMap] =
+    useTexture([
+      "webgl-ts-screen-1.jpg",
+      "project-manager-screen-2.jpg",
+      "/lueur-screenshot.jpg",
+    ]);
 
   return (
     <>
@@ -42,9 +44,13 @@ const Scene = () => {
         position={[6.7, -0.37, -3]}
         rotation={[0, -Math.PI / 4, 0]}
         scale={[1.1, 1.1, 1.1]}
+        texture={lueurScreenMap}
+      />
+      <TVModel2
+        position={[1.5, -3, -1.3]}
+        rotation={[0, Math.PI / 10, 0]}
         texture={webglTsScreenMap}
       />
-      <TVModel2 position={[1.5, -3, -1.3]} rotation={[0, Math.PI / 10, 0]} />
       <TVModel3
         position={[3.5, -3, -5.3]}
         rotation={[0, Math.PI * 1.2, 0]}

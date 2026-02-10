@@ -12,7 +12,7 @@ export const PresentationSection = ({ data }: PresentationSectionProps) => {
       <p className="text-sm text-muted-foreground">{data.description}</p>
       <p className="text-xs">
         Disponible à partir de{" "}
-        <span className="font-bold text-red-600">janvier 2026</span>
+        <span className="font-bold text-red-600">février 2026</span>
       </p>
       <div className="grid gap-4">
         {data.cards.map((card, index) => {

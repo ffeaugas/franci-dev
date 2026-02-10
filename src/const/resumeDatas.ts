@@ -1,7 +1,7 @@
 import type { ResumeData } from "@/types/resume";
 
 export const resumeDatas: ResumeData = {
-    presentation : {
+    presentation: {
         title: 'Présentation',
         description: "Après 2 années à développer des applications au sein d'une agence de développement Web parisienne, je propose désormais mes services en tant que freelance.",
         cards: [
@@ -22,7 +22,7 @@ export const resumeDatas: ResumeData = {
             }
         ]
     },
-    experiences : {
+    experiences: {
         title: 'Expériences',
         cards: [
             {
@@ -32,8 +32,9 @@ export const resumeDatas: ResumeData = {
                 clients: [
                     {
                         name: 'Lueur studio',
-                        description: "Association d'événementiel : développement d'un site immersif et interactif",
-                        technologies: ['React', 'Three.js']
+                        description: "Association d'événementiel : développement d'un site artistique et interactif",
+                        technologies: ['React', 'Three.js'],
+                        link: 'https://www.lueurs-studio.fr/',
                     }
                 ]
             },
@@ -72,7 +73,7 @@ export const resumeDatas: ResumeData = {
                 }
             },
             {
-                title:'Doctorant en électronique',
+                title: 'Doctorant en électronique',
                 company: "IMS (Laboratoire de l'Intégration du Matériau au Système)",
                 year: '2020-2022',
                 description: `Sujet de thèse : “Dopage de polymères conjugués pour l'amélioration de l'efficacité et la stabilité des cellules photovoltaïques organiques”<br/>Conférence donnée en anglais (ESEMA 2022)<br/>Article publié : [Feaugas F. et al. (2022). Homojunction Doping for Efficient Hole Extraction in Polymer Solar Cells. Solar RRL]`,
@@ -81,7 +82,7 @@ export const resumeDatas: ResumeData = {
 
         ]
     },
-    projects : {
+    projects: {
         title: 'Projets',
         cards: [
             {
@@ -105,14 +106,14 @@ export const resumeDatas: ResumeData = {
             }
         ]
     },
-    formation : {
+    formation: {
         title: 'Formation',
         cards: [
             {
                 title: '42',
                 description: "Programmation bas niveau : Création d'un shell, d'un jeu en Ray casting - Programmation orientée objet / multithreads - Serveur de communication IRC - Administration système - Projet full-stack Web : Jeu en ligne avec chat en temps réel, authentification, statistiques",
                 year: '2022',
-                technologies: ['C', 'C++', 'Typescript', 'Docker', 'Nest.js', 'Next.js', 'PostgreSQL'],            
+                technologies: ['C', 'C++', 'Typescript', 'Docker', 'Nest.js', 'Next.js', 'PostgreSQL'],
             },
             {
                 title: 'Ingénieur matériaux et nanotechnologies',

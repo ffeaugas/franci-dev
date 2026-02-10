@@ -30,7 +30,11 @@ export const TVModel2 = (props: TVModelProps) => {
           receiveShadow
           geometry={(nodes.Cube_2 as Mesh).geometry}
           material={materials.ecran}
-        />
+        >
+          {props.texture && !isButtoPushed && (
+            <meshBasicMaterial map={props.texture} />
+          )}
+        </mesh>
         <mesh
           castShadow
           receiveShadow
