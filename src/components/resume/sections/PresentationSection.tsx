@@ -10,9 +10,9 @@ export const PresentationSection = ({ data }: PresentationSectionProps) => {
   return (
     <div className="space-y-4">
       <p className="text-sm text-muted-foreground">{data.description}</p>
-      <p className="text-xs">
-        Disponible à partir de{" "}
-        <span className="font-bold text-red-600">février 2026</span>
+      <p className="text-[.875rem] font-light text-green-600">
+        N'hésitez pas à me contacter pour en savoir plus sur mes disponibilités
+        et me faire part de votre projet.
       </p>
       <div className="grid gap-4">
         {data.cards.map((card, index) => {
